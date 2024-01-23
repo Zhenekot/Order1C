@@ -1,0 +1,82 @@
+.form-group input[type="text"] {
+    width: calc(100% - 20px); /* Уменьшаем ширину поля ввода */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.form-group {
+    margin-bottom: 20px; /* Увеличиваем отступ между полями */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #666; /* Затемняем цвет меток */
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"],
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 20px); /* Вычитаем padding из ширины */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd; /* Мягкий цвет границы */
+    border-radius: 5px; /* Немного скругляем углы */
+    transition: border-color 0.3s; /* Добавляем плавный переход для границы */
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: black; /* Меняем цвет при фокусировке */
+}
+
+.form-group input[type="submit"],
+.form-group a {
+    padding: 10px 20px;
+    color: white;
+    background-color: #29282d; /* Синий цвет для кнопки */
+    border: none;
+    border-radius: 5px; /* Скругляем углы */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Плавный переход для фона */
+    margin: 0 10px; /* Отступ между кнопками */
+    text-decoration: none;
+    display: inline-block; /* Убираем стандартные стили ссылки */
+}
+
+.form-group input[type="submit"]:hover,
+.form-group a:hover {
+    background-color: #3e3d45; /* Темный оттенок при наведении */
+}
+
+.form-group a {
+    background-color: #6c757d; /* Серый цвет для кнопки отмены */
+}
+
+
+.form-group a:hover {
+    background-color: #565e64; /* Темный оттенок при наведении для кнопки отмены */
+}
+.edit-city-container {
+    width: 60%;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.field-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.field-container .field {
+    flex-basis: 48%;
+    margin-bottom: 1rem;

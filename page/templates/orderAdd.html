@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+  <div class="container mt-5 edit-city-container">
+    <h2 class="mb-4">Добавить заказ</h2>
+    <form method="post" class="form-group" >
+      {% csrf_token %}
+
+      <div class="row">
+        <div class="mb-3">
+          <label>Количество:</label>
+          {{ form.count }}
+ </div>
+    </div>
+
+        <div class=" mb-3">
+         <label>Продукт:</label>
+        <input type="text"  id="product-input" list="products" placeholder="Введите продукцию">
+    <datalist id="products">
+
+      {% for product in products %}
+        <option value="{{ product.title }}"></option>
+      {% endfor %}
+    </datalist>
+
+</div>
+        <div class=" mb-3">
+         <label>Клиент:</label>
+        <input type="text" list="clients" placeholder="Введите клиента">
+  <datalist id="clients">
+  {% for client in clients %}
+    <option value="{{ client.title }}">
+  {% endfor %}
+</datalist>
+</div>
+
+
+
+        <div class=" mb-3">
+         <label>Куда:</label>
+        <input type="text"  list="placesImpl" placeholder="Введите куда">
+<datalist id="placesImpl">
+  {% for placeImpl in placesImpl %}
+    <option value="{{ placeImpl.title }}">
+  {% endfor %}
+</datalist>
+</div>
+
+<div class=" mb-3">
+         <label>Машина:</label>
+        <input type="text" list="cars" placeholder="Введите машину">
+<datalist id="cars">
+  {% for car in cars %}
+    <option value="{{ car.number }}">
+  {% endfor %}
+</datalist>
+</div>
+
+
+ <div class=" mb-3">
+         <label>Откуда:</label>
+        <input type="text" list="placesFrom" placeholder="Введите откуда">
+<datalist name="placeFrom" id="placesFrom">
+  {% for placeFrom in placesFrom %}
+    <option value="{{ placeFrom.title }}"></option>
+  {% endfor %}
+</datalist>
+</div>
+
+
+      <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+  </div>
+
+<script>
+    var productInput = document.getElementById('product-input');
+    var productsDatalist = document.getElementById('products');
+
+    productInput.addEventListener('input', function() {
+        var inputValue = this.value.toLowerCase();
+
+        // Удаляем атрибут selected у всех вариантов
+        Array.from(productsDatalist.options).forEach(function(option) {
+            option.removeAttribute('selected');
+        });
+
+        // Ищем соответствующий вариант в datalist
+        var matchingOption = Array.from(productsDatalist.options).find(function(option) {
+            return option.value.toLowerCase() === inputValue;
+        });
+
+        // Если нашли соответствие, устанавливаем атрибут selected
+        if (matchingOption) {
+            matchingOption.setAttribute('selected', 'selected');
+        }
+    });
+</script>
+
+{% endblock %}
